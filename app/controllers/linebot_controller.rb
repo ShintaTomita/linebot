@@ -25,7 +25,7 @@ class LinebotController < ApplicationController
             text: "ドウシタ？"
           },{
             type: 'text',
-            text: "#{seed1} × #{seed2} !!"
+            text: "#{seed1}!!\n#{seed2}!!"
           }]
           client.reply_message(event['replyToken'], message)
         end
@@ -42,7 +42,11 @@ class LinebotController < ApplicationController
   end
   def select_word
     # この中を変えると返ってくるキーワードが変わる
-    seeds = ["ウンコ", "オナラ", "最高", "サイコウ"]
+    seeds = ["今日も振り切れ", "しんどい？　人間やめるか", "最高に生きろ", "武士は食わねど高楊枝",
+             "世の中、金か？", "諦めたらそこで終わり", "妬み、僻みは人生を破滅させる", "人間が最高なのは夢を実現出来る事",
+             "お前の苦労話、戦争孤児に比べたらクソ", "人間のみ許された特権は笑うこと", "やるという強い意志", "深呼吸", "とにかく笑え",
+             "声を大にして笑え", "常識を疑え", "大人達が作った常識に惑わされるな", "常に自分の直感を信じろ", "君は天才, 何かの",
+             "日本あかんとか言ってるお前が日本をだめにしている", "まず人を助けろ", "とにかく自分が人を愛そう", "なんとかなる"]
     seeds.sample
   end
 end
