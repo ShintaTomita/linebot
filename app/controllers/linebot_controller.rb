@@ -24,7 +24,7 @@ class LinebotController < ApplicationController
             type: 'text',
             text: "キーワード何にしようかな〜〜"
           },{
-            type: = 'text',
+            type: 'text',
             text: "#{seed1} × #{seed2} !!"
           }]
           client.reply_message(event['replyToken'], message)
@@ -47,5 +47,5 @@ class LinebotController < ApplicationController
     seeds = ["アイデア１", "アイデア２", "アイデア３", "アイデア４"]
     seeds.sample
   end
-  
+
 end
