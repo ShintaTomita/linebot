@@ -1,7 +1,7 @@
+
 class LinebotController < ApplicationController
   require 'line/bot'
-
-  #callbackアクションのCSRFトークン認証を無効
+  # callbackアクションのCSRFトークン認証を無効
   protect_from_forgery :except => [:callback]
   def callback
     body = request.body.read
@@ -18,9 +18,9 @@ class LinebotController < ApplicationController
           seed1 = select_word
           seed2 = select_word
           while seed1 == seed2
-            seed2  = select_word
+            seed2 = select_word
           end
-          messsge = [{
+          message = [{
             type: 'text',
             text: "キーワード何にしようかな〜〜"
           },{
@@ -33,19 +33,16 @@ class LinebotController < ApplicationController
     }
     head :ok
   end
-
   private
-
   def client
     @client ||= Line::Bot::Client.new { |config|
-    config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-    config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     }
   end
-
   def select_word
+    # この中を変えると返ってくるキーワードが変わる
     seeds = ["アイデア１", "アイデア２", "アイデア３", "アイデア４"]
     seeds.sample
   end
-
 end
