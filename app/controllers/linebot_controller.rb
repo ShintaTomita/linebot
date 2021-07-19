@@ -22,7 +22,7 @@ class LinebotController < ApplicationController
           end
           message = [{
             type: 'text',
-            text: "キーワード何にしようかな〜〜"
+            text: "ドウシタ？"
           },{
             type: 'text',
             text: "#{seed1} × #{seed2} !!"
@@ -42,7 +42,7 @@ class LinebotController < ApplicationController
   end
   def select_word
     # この中を変えると返ってくるキーワードが変わる
-    seeds = ["アイデア１", "アイデア２", "アイデア３", "アイデア４"]
+    seeds = ["ウンコ", "オナラ", "最高", "サイコウ"]
     seeds.sample
   end
 end
